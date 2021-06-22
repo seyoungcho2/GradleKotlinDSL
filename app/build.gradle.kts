@@ -1,6 +1,19 @@
+import app.AppDependencies.androidCoreDependencies
+import app.AppDependencies.asyncDependencies
+import app.AppDependencies.diDependencies
+import app.AppDependencies.jetpackDependencies
+import app.AppDependencies.networkDependencies
+import app.AppDependencies.rxJavaDependencies
+import app.AppDependencies.testDependencies
+import app.AppDependencies.uiDependencies
+import common.GradleUtil.implement
+
 plugins {
-    id("com.android.application")
-    id("kotlin-android")
+    id(app.Plugins.androidApplication)
+    id(app.Plugins.kotlinAndroid)
+    id(app.Plugins.kotlinKapt)
+    id(app.Plugins.kotlinParcelize)
+    id(app.Plugins.daggerPlugin)
 }
 
 android {
@@ -32,12 +45,12 @@ android {
 }
 
 dependencies {
-    implementation("org.jetbrains.kotlin:kotlin-stdlib:1.5.0")
-    implementation("androidx.core:core-ktx:1.5.0")
-    implementation("androidx.appcompat:appcompat:1.3.0")
-    implementation("com.google.android.material:material:1.3.0")
-    implementation("androidx.constraintlayout:constraintlayout:2.0.4")
-    testImplementation("junit:junit:4.+")
-    androidTestImplementation("androidx.test.ext:junit:1.1.2")
-    androidTestImplementation("androidx.test.espresso:espresso-core:3.3.0")
+    diDependencies.implement(this)
+    jetpackDependencies.implement(this)
+    networkDependencies.implement(this)
+    asyncDependencies.implement(this)
+    uiDependencies.implement(this)
+    testDependencies.implement(this)
+    androidCoreDependencies.implement(this)
+    rxJavaDependencies.implement(this)
 }
